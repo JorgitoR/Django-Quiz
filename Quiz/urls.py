@@ -1,6 +1,13 @@
 from django.urls import path
 
-from .views import inicio, registro, loginView, logout_vista, HomeUsuario, jugar
+from .views import (
+			inicio, 
+			registro, 
+			loginView, 
+			logout_vista,
+			HomeUsuario, 
+			jugar,
+			resultado_pregunta)
 
 urlpatterns = [
 	
@@ -14,5 +21,6 @@ urlpatterns = [
 
 	
 	path('jugar/', jugar, name='jugar'),
+	path('resultado/<int:pregunta_respondida_pk>/', resultado_pregunta, name='resultado'),
 
 ]

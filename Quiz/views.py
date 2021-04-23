@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from django.contrib.auth import authenticate, login, logout
 
@@ -40,11 +40,11 @@ def jugar(request):
 
 		QuizUser.validar_intento(pregunta_respondida, opcion_selecionada)
 
-		return redirect(pregunta_respondida)
+		return redirect('resultado', pregunta_respondida.pk)
 
 	else:
 		pregunta = QuizUser.obtener_nuevas_preguntas()
-		if preguntais not None:
+		if pregunta is not None:
 			QuizUser.crear_intentos(pregunta)
 
 		context = {
@@ -53,6 +53,15 @@ def jugar(request):
 
 	return render(request, 'play/jugar.html', context)
 
+
+
+def resultado_pregunta(request, pregunta_respondida_pk):
+	respondida = get_object_or_404(PreguntasRespondidas, pk=pregunta_respondida_pk)
+
+	context = {
+		'respondida':respondida
+	}
+	return render(request, 'play/resultados.html', context)
 
 def loginView(request):
 	titulo = 'login'
