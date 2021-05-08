@@ -10,3 +10,10 @@ Funciones de acceso a nuestro sitio.
 - El usuario debe loggearce para aplicar a los Quiz
 - Para registrarse, el usuario debe proporcionar nombre de usuario, nombre, apellido, dirección de correo electrónico y contraseña.
 - Para iniciar sesion el usuario debe requerir introducir el username y password
+
+## Caracteristicas de nuestro Quiz
+
+- Todas las preguntas son de opcion multiple
+- Cada pregunta es mostrada una sola vez por el usuario, una vez que el usuario la responda será excluida
+- Las preguntas se muestran aleatoriamente para cada usuario
+- 
