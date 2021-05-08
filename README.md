@@ -16,4 +16,5 @@ Funciones de acceso a nuestro sitio.
 - Todas las preguntas son de opcion multiple
 - Cada pregunta es mostrada una sola vez por el usuario, una vez que el usuario la responda será excluida
 - Las preguntas se muestran aleatoriamente para cada usuario
-- 
+
+## Empezando con el desarrollo
