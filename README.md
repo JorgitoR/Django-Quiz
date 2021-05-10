@@ -18,3 +18,7 @@ Funciones de acceso a nuestro sitio.
 - Las preguntas se muestran aleatoriamente para cada usuario
 
 ## Empezando con el desarrollo
+Dependencias:
+- Python 3.6.x
+- Django 1.11.x
+- Ubuntu 17.04 or later or Linux Mint 18.2 or later
