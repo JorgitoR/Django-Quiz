@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block contenido %}
 
 {% if pregunta is None %}
@@ -8,7 +7,7 @@
 <div class="container">
 	<div class="jumbotron my-4">
 		<h1>Ya haz respondido a todas nuestras preguntas. Mira el tablero de posiciones</h1>
-		<a href="">Ver Aqui</a>
+		<a href="{% url 'tablero' %}">Ver Aqui</a>
 	</div>
 </div>
 
@@ -28,12 +27,12 @@
 			<input type="hidden" name="pregunta_pk" value="{{pregunta.pk}}">
 
 			{% for opciones in pregunta.opciones.all %}
-				<p>
+				<div class="form-check mx-4">
 				<input class="form-check-input" type="radio" name="respuesta_pk" value="{{opciones.pk}}" id="choice-{{forloop.counter}}">
 				<label class="form-check-label" for="choice-{{forloop.counter}}">
 					{{opciones.texto}}
 				</label>
-				</p>
+				</div>
 			{% endfor %}
 
 			<button type="submit" class="btn btn-success">

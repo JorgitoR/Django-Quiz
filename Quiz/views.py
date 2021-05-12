@@ -23,6 +23,17 @@ def HomeUsuario(request):
 	return render(request, 'Usuario/home.html')
 
 
+def tablero(request):
+	total_usaurios_quiz = QuizUsuario.objects.order_by('-puntaje_total')[:10]
+	contador = total_usaurios_quiz.count()
+
+	context = {
+
+		'usuario_quiz':total_usaurios_quiz,
+		'contar_user':contador
+	}
+
+	return render(request, 'play/tablero.html', context)
 
 def jugar(request):
 

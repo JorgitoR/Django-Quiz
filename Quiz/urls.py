@@ -7,7 +7,8 @@ from .views import (
 			logout_vista,
 			HomeUsuario, 
 			jugar,
-			resultado_pregunta)
+			resultado_pregunta,
+			tablero)
 
 urlpatterns = [
 	
@@ -18,6 +19,7 @@ urlpatterns = [
 	path('login/', loginView, name='login'),
 	path('logout_vista/', logout_vista, name='logout_vista'),
 	path('registro/', registro, name='registro'),
+	path('tablero/', tablero, name='tablero'),
 
 	
 	path('jugar/', jugar, name='jugar'),

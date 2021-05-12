@@ -54,7 +54,19 @@ class QuizUsuario(models.Model):
 			pregunta_respondida.puntaje_obtenido = respuesta_selecionada.pregunta.max_puntaje
 			pregunta_respondida.respuesta = respuesta_selecionada
 
+		else:
+			pregunta_respondida.respuesta = respuesta_selecionada
+
 		pregunta_respondida.save()
+
+		self.actualizar_puntaje()
+
+	def actualizar_puntaje(self):
+		puntaje_actualizado = self.intentos.filter(correcta=True).aggregate(
+			models.Sum('puntaje_obtenido'))['puntaje_obtenido__sum']
+
+		self.puntaje_total = puntaje_actualizado
+		self.save()
 
 class PreguntasRespondidas(models.Model):
 	quizUser = models.ForeignKey(QuizUsuario, on_delete=models.CASCADE, related_name='intentos')
